@@ -3,3 +3,9 @@
 *~
 _vim/ropevim/src*
 _vim/ropevim/pylibs*
+_weechat/.weechat
+_xmonad/.xmonad
+_xmonad/xmonad-x86_64-linux
+_xmonad/xmonad.errors
+_xmonad/xmonad.hi
+_xmonad/xmonad.o

@@ -49,3 +49,15 @@
 [submodule "_vim/bundle/solarized"]
 	path = _vim/bundle/solarized
 	url = https://github.com/altercation/vim-colors-solarized.git
+[submodule "_vim/bundle/minibufexpl"]
+	path = _vim/bundle/minibufexpl
+	url = https://github.com/fholgado/minibufexpl.vim.git
+[submodule "_vim/bundle/vimproc"]
+	path = _vim/bundle/vimproc
+	url = https://github.com/Shougo/vimproc.git
+[submodule "_vim/bundle/vimshell"]
+	path = _vim/bundle/vimshell
+	url = https://github.com/Shougo/vimshell.git
+[submodule "_vim/bundle/autopydoc"]
+	path = _vim/bundle/autopydoc
+	url = https://github.com/offlinehacker/autopydoc.git

@@ -129,6 +129,9 @@ map <leader>j :RopeGotoDefinition<CR>
 
 " Rename whatever the cursor is on (including references to it)
 map <leader>r :RopeRename<CR>
+
+" Documentation shortcuts
+map <leader>d :Autopydoc<CR>
 " ==========================================================
 " Pathogen - Allows us to organize our vim plugins
 " ==========================================================
@@ -182,7 +185,7 @@ set showmatch               " Briefly jump to a paren once it's balanced
 set nowrap                  " don't wrap text
 set linebreak               " don't wrap textin the middle of a word
 set autoindent              " always set autoindenting on
-set smartindent             " use smart indent if there is no indent file
+set cindent             " use smart indent if there is no indent file
 set tabstop=4               " <tab> inserts 4 spaces 
 set shiftwidth=4            " but an indent level is 2 spaces wide.
 set softtabstop=4           " <BS> over an autoindent deletes both spaces.
@@ -304,3 +307,55 @@ if filereadable($VIRTUAL_ENV . '/.vimrc')
 endif
 
 set colorcolumn=79
+
+" Auto comment on new lines
+:set formatoptions+=r
+
+" Mouse hack
+:set mouse=a
+
+" Nerdtree hacks
+autocmd VimEnter * NERDTree
+autocmd BufEnter * NERDTreeMirror
+
+autocmd VimEnter * MiniBufExplorer
+autocmd VimEnter * wincmd w
+
+"Close current buffer
+nmap <leader>d :bprevious<CR>:bdelete #<CR>
+
+
+" DBGp client: a remote debugger interface to the DBGp protocol
+"
+" Script Info and Documentation  {{{
+"=============================================================================
+"    Copyright: Copyright (C) 2010 Jared Forsyth
+"      License:	The MIT License
+
+" Do not source this script when python is not compiled in.
+if !has("python")
+    finish
+endif
+
+python << EOF
+import vim
+try:
+    from vim_debug.commands import debugger_cmd
+    vim.command('let has_debug = 1')
+except ImportError, e:
+    vim.command('let has_debug = 0')
+    print 'python module vim_debug not found...'
+EOF
+
+if !has_debug
+    finish
+endif
+
+command! -nargs=* Dbg python debugger_cmd('<args>')
+
+" Debugger highlighting
+hi DbgCurrent term=reverse ctermfg=White ctermbg=Red gui=reverse
+hi DbgBreakPt term=reverse ctermfg=White ctermbg=Green gui=reverse
+sign define current text=->  texthl=DbgCurrent linehl=DbgCurrent
+sign define breakpt text=B>  texthl=DbgBreakPt linehl=DbgBreakPt
+
