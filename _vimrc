@@ -132,6 +132,9 @@ map <leader>r :RopeRename<CR>
 
 " Documentation shortcuts
 map <leader>d :Autopydoc<CR>
+
+" Create ctags
+map <leader>ž :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
 " ==========================================================
 " Pathogen - Allows us to organize our vim plugins
 " ==========================================================

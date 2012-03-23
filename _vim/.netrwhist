@@ -1,0 +1,4 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =2
+let g:netrw_dirhist_1='/home/offlinehacker/projects/dotfiles/_vim/bundle'
+let g:netrw_dirhist_2='/home/offlinehacker/projects/osmocomm-bb-raw/src/host/layer23/src/misc/predictions'
